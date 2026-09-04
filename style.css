@@ -1,0 +1,1404 @@
+/* ==========================================================================
+   GAS // TACTICAL FPS SHOOTER - STYLESHEET
+   Aesthetic: Gritty Mil-Sim / Tactical Operator HUD (CS:GO, PUBG, Squad, ARMA inspired)
+   Designed for: Easy customization & GitHub Pages deployment
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CUSTOMIZABLE DESIGN TOKENS (Change colors, fonts, and spacing here)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Color Palette */
+  --bg-primary: #080b10;
+  --bg-secondary: #0f141d;
+  --bg-card: rgba(14, 19, 29, 0.93);
+  --bg-card-hover: rgba(22, 30, 44, 0.97);
+  --bg-accent-glass: rgba(255, 255, 255, 0.05);
+  
+  --border-subtle: rgba(255, 255, 255, 0.12);
+  --border-active: rgba(245, 158, 11, 0.7);
+  --border-tactical: rgba(93, 123, 87, 0.5);
+
+  --text-main: #f1f5f9;
+  --text-muted: #cbd5e1;
+  --text-bright: #ffffff;
+  
+  /* Military / Tactical Accents */
+  --accent-amber: #f59e0b;
+  --accent-amber-glow: rgba(245, 158, 11, 0.25);
+  --accent-olive: #5e8254;
+  --accent-olive-light: #7da572;
+  --accent-danger: #ef4444;
+  --accent-cyan: #38bdf8;
+  
+  /* Fonts */
+  --font-heading: 'Rajdhani', 'Oswald', 'Chakra Petch', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Share Tech Mono', monospace;
+
+  /* Layout */
+  --container-max-width: 1280px;
+  --header-height: 74px;
+  --section-padding: 100px 0;
+  --border-radius: 4px; /* Crisp military edges */
+  --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --------------------------------------------------------------------------
+   2. GLOBAL RESET & BASE STYLES
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+  font-size: 16px;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+  background-color: var(--bg-primary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  transition: var(--transition);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+/* --------------------------------------------------------------------------
+   3. NAVIGATION BAR
+   -------------------------------------------------------------------------- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  background: rgba(8, 11, 16, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  transition: var(--transition);
+}
+
+.navbar.scrolled {
+  background: rgba(8, 11, 16, 0.97);
+  border-bottom: 1px solid rgba(245, 158, 11, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-logo {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: var(--text-bright);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.brand-logo .dot {
+  color: var(--accent-amber);
+  margin-left: 2px;
+}
+
+.brand-badge {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 3px 8px;
+  background: rgba(245, 158, 11, 0.12);
+  color: var(--accent-amber);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 26px;
+}
+
+.nav-link {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  position: relative;
+  padding: 6px 0;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--accent-amber);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-amber);
+  box-shadow: 0 0 8px var(--accent-amber);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 8px;
+}
+
+.mobile-toggle span {
+  width: 24px;
+  height: 2px;
+  background: var(--text-bright);
+  transition: var(--transition);
+}
+
+/* --------------------------------------------------------------------------
+   4. TACTICAL BUTTONS & BADGES
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  border-radius: 2px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--accent-amber);
+  color: #000000;
+  border: 1px solid var(--accent-amber);
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
+}
+
+.btn-primary:hover {
+  background: #ffb52e;
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.5);
+  transform: translateY(-2px);
+  color: #000000;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-bright);
+  border: 1px solid var(--border-subtle);
+  backdrop-filter: blur(5px);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--text-bright);
+  transform: translateY(-2px);
+  color: var(--text-bright);
+}
+
+.btn-military {
+  background: rgba(94, 130, 84, 0.2);
+  color: var(--accent-olive-light);
+  border: 1px solid var(--accent-olive);
+}
+
+.btn-military:hover {
+  background: var(--accent-olive);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.btn-sm {
+  padding: 8px 16px;
+  font-size: 0.95rem;
+}
+
+/* Tactical Corner Bracket Accents */
+.tactical-box {
+  position: relative;
+}
+
+.tactical-box::before,
+.tactical-box::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+  transition: var(--transition);
+}
+
+.tactical-box::before {
+  top: 0;
+  left: 0;
+  border-top: 2px solid var(--accent-amber);
+  border-left: 2px solid var(--accent-amber);
+}
+
+.tactical-box::after {
+  bottom: 0;
+  right: 0;
+  border-bottom: 2px solid var(--accent-amber);
+  border-right: 2px solid var(--accent-amber);
+}
+
+/* --------------------------------------------------------------------------
+   5. STANDARDIZED SECTION ARCHITECTURE (User Extensible)
+   -------------------------------------------------------------------------- */
+.game-section {
+  position: relative;
+  padding: var(--section-padding);
+  background-color: var(--bg-primary);
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(8, 11, 16, 0.68) 0%, rgba(8, 11, 16, 0.82) 100%),
+    var(--section-bg, none);
+  background-size: 48px 48px, 48px 48px, cover, cover;
+  background-position: 0 0, 0 0, center, center;
+  background-repeat: repeat, repeat, no-repeat, no-repeat;
+  overflow: hidden;
+  margin-top: -1px;
+}
+
+.section-header {
+  margin-bottom: 56px;
+  max-width: 820px;
+}
+
+.section-header.text-center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.section-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: var(--accent-amber);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  position: relative;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-bright);
+  line-height: 1.15;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95);
+}
+
+.section-desc {
+  font-size: 1.12rem;
+  color: #dbeafe;
+  line-height: 1.7;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.95);
+}
+
+/* --------------------------------------------------------------------------
+   6. SECTION 1: HERO & CORE PITCH
+   -------------------------------------------------------------------------- */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: calc(var(--header-height) + 50px);
+  padding-bottom: 80px;
+  background-color: var(--bg-primary);
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(8, 11, 16, 0.20) 0%, rgba(8, 11, 16, 0.60) 75%, rgba(8, 11, 16, 0.85) 100%),
+    linear-gradient(90deg, rgba(8, 11, 16, 0.85) 0%, rgba(8, 11, 16, 0.20) 50%, rgba(8, 11, 16, 0.85) 100%),
+    var(--section-bg, url('assets/coverart.png'));
+  background-size: 48px 48px, 48px 48px, cover, cover, cover;
+  background-position: 0 0, 0 0, center, center, center 20%;
+  background-repeat: repeat, repeat, no-repeat, no-repeat, no-repeat;
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 900px;
+}
+
+.hero-meta-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.meta-pill {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  border-radius: 2px;
+  color: var(--text-muted);
+}
+
+.meta-pill.highlight {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: var(--accent-amber);
+  color: var(--accent-amber);
+}
+
+.meta-pill.live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #4ade80;
+  border-color: rgba(74, 222, 128, 0.4);
+}
+
+.meta-pill.live::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: #4ade80;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #4ade80;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(3.8rem, 8.5vw, 7.2rem);
+  font-weight: 900;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  color: var(--text-bright);
+  line-height: 0.95;
+  margin-bottom: 16px;
+  text-shadow: 0 5px 30px rgba(0, 0, 0, 0.85);
+}
+
+.hero-subtitle {
+  font-family: var(--font-heading);
+  font-size: clamp(1.3rem, 2.5vw, 1.9rem);
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-amber);
+  margin-bottom: 24px;
+}
+
+.hero-brief {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #f1f5f9;
+  line-height: 1.7;
+  margin-bottom: 28px;
+  max-width: 820px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+}
+
+/* Pitch Motive Card */
+.pitch-motive-card {
+  background: rgba(12, 17, 26, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(93, 123, 87, 0.5);
+  border-left: 4px solid var(--accent-olive);
+  padding: 24px 28px;
+  border-radius: 2px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.motive-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.motive-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: var(--accent-olive-light);
+  text-transform: uppercase;
+}
+
+.pitch-motive-text {
+  font-size: 1.02rem;
+  color: #cbd5e1;
+  line-height: 1.75;
+}
+
+.pitch-motive-text strong {
+  color: var(--text-bright);
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   7. SECTION 2: GAME MODE (BATTLE ROYALE / SURVIVAL)
+   -------------------------------------------------------------------------- */
+.gamemode-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.gamemode-info h3 {
+  font-family: var(--font-heading);
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--text-bright);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
+}
+
+.gamemode-info p {
+  color: #cbd5e1;
+  font-size: 1.1rem;
+  line-height: 1.75;
+  margin-bottom: 28px;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
+}
+
+.tactical-features-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.feature-pill {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 14px 18px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 2px;
+}
+
+.feature-icon {
+  color: var(--accent-amber);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.feature-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-bright);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.feature-sub {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.gamemode-visual {
+  position: relative;
+  border: 1px solid var(--border-subtle);
+  background: #000000;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+.gamemode-visual img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.gamemode-visual:hover img {
+  transform: scale(1.03);
+}
+
+.hud-watermark {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  color: var(--accent-amber);
+  background: rgba(8, 11, 16, 0.8);
+  padding: 8px 14px;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  backdrop-filter: blur(4px);
+}
+
+/* --------------------------------------------------------------------------
+   8. SECTION 3: WEAPONS & RAW GUNPLAY
+   -------------------------------------------------------------------------- */
+.weapon-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 36px;
+  justify-content: center;
+}
+
+.filter-btn {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  color: var(--text-muted);
+  border-radius: 2px;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--accent-amber);
+  color: #000000;
+  border-color: var(--accent-amber);
+  box-shadow: 0 0 12px var(--accent-amber-glow);
+}
+
+.weapons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.weapon-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 2px;
+  padding: 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.weapon-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--accent-amber);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+.weapon-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.weapon-name {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-bright);
+}
+
+.weapon-category {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--accent-amber);
+  text-transform: uppercase;
+  background: rgba(245, 158, 11, 0.1);
+  padding: 3px 8px;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: 2px;
+}
+
+.weapon-img-wrap {
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 16px 0 24px;
+  position: relative;
+}
+
+.weapon-img-wrap img {
+  max-height: 100%;
+  max-width: 95%;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.7));
+  transition: transform 0.3s ease;
+}
+
+.weapon-card:hover .weapon-img-wrap img {
+  transform: scale(1.08);
+}
+
+.weapon-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.stat-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+
+.stat-bar-container {
+  width: 130px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.stat-bar {
+  height: 100%;
+  background: var(--accent-amber);
+}
+
+/* --------------------------------------------------------------------------
+   9. SECTION 4: REALISTIC AMMO & MAGAZINES
+   -------------------------------------------------------------------------- */
+.ammo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.ammo-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 2px;
+  padding: 24px;
+  text-align: center;
+  transition: var(--transition);
+  position: relative;
+}
+
+.ammo-card:hover {
+  border-color: var(--accent-amber);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.ammo-img-wrap {
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.ammo-img-wrap img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.6));
+}
+
+.ammo-title {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-bright);
+  margin-bottom: 6px;
+}
+
+.ammo-spec {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-amber);
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.ammo-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   10. SECTION 5: WEAPON ATTACHMENTS & LOADOUT
+   -------------------------------------------------------------------------- */
+.attachments-container {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.subgroup-title {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-bright);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.subgroup-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--border-subtle), transparent);
+}
+
+.attachments-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.attachments-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.attachment-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 2px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  transition: var(--transition);
+}
+
+.attachment-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--accent-amber);
+  transform: translateY(-2px);
+}
+
+.attachment-icon-box {
+  width: 70px;
+  height: 70px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 2px;
+}
+
+.attachment-icon-box img {
+  max-width: 85%;
+  max-height: 85%;
+  object-fit: contain;
+}
+
+.attachment-info {
+  flex: 1;
+}
+
+.attachment-name {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--text-bright);
+  margin-bottom: 4px;
+}
+
+.attachment-benefit {
+  font-size: 0.85rem;
+  color: var(--accent-olive-light);
+  font-family: var(--font-mono);
+}
+
+/* --------------------------------------------------------------------------
+   11. SECTION 6: UTILITIES & FIELD GEAR
+   -------------------------------------------------------------------------- */
+.utilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+}
+
+.utility-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 2px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: var(--transition);
+  position: relative;
+}
+
+.utility-card:hover {
+  border-color: var(--accent-amber);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+.utility-icon-wrap {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.utility-icon-wrap img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.7));
+}
+
+.utility-title {
+  font-family: var(--font-heading);
+  font-size: 1.7rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-bright);
+  margin-bottom: 8px;
+}
+
+.utility-tagline {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent-amber);
+  margin-bottom: 14px;
+  letter-spacing: 1px;
+}
+
+.utility-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   12. SECTION 7: MAP (MILITARY ISLAND)
+   -------------------------------------------------------------------------- */
+.map-showcase {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.map-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+}
+
+.map-image-container {
+  position: relative;
+  background: #05080c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 480px;
+  border-right: 1px solid var(--border-subtle);
+}
+
+.map-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.map-details {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.map-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--accent-amber);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.map-name {
+  font-family: var(--font-heading);
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-bright);
+  margin-bottom: 16px;
+}
+
+.map-brief {
+  color: #cbd5e1;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.poi-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.poi-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: #f1f5f9;
+  background: rgba(14, 19, 29, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 10px 14px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 2px;
+}
+
+.poi-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent-amber);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--accent-amber);
+}
+
+/* --------------------------------------------------------------------------
+   13. SECTION 8: CONTACTS & PUBLISHER PITCH
+   -------------------------------------------------------------------------- */
+.contact-container {
+  background: linear-gradient(135deg, rgba(14, 19, 29, 0.95) 0%, rgba(8, 11, 16, 0.98) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-tactical);
+  padding: 60px 48px;
+  border-radius: 2px;
+  position: relative;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.contact-info h3 {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-bright);
+  margin-bottom: 16px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
+}
+
+.contact-info p {
+  color: #cbd5e1;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin-bottom: 28px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-subtle);
+  padding: 16px 20px;
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+.contact-card:hover {
+  border-color: var(--accent-amber);
+  background: var(--bg-card-hover);
+}
+
+.contact-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-amber);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.contact-value {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-bright);
+}
+
+.copy-btn {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-subtle);
+  color: #cbd5e1;
+  border-radius: 2px;
+}
+
+.copy-btn:hover {
+  background: var(--accent-amber);
+  color: #000;
+  border-color: var(--accent-amber);
+}
+
+.pitch-action-card {
+  background: rgba(10, 14, 22, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  padding: 32px;
+  text-align: center;
+  border-radius: 2px;
+}
+
+.pitch-action-card h4 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-bright);
+  margin-bottom: 12px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+.pitch-action-card p {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   14. FOOTER
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background: #040609;
+  border-top: 1px solid var(--border-subtle);
+  padding: 40px 0;
+  text-align: center;
+  margin-top: -1px;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-brand {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: var(--text-bright);
+}
+
+.footer-brand span {
+  color: var(--accent-amber);
+}
+
+.footer-legal {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+
+/* --------------------------------------------------------------------------
+   15. LIGHTBOX / MODAL (FOR WEAPON & IMAGE ZOOM)
+   -------------------------------------------------------------------------- */
+.lightbox-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(4, 6, 9, 0.92);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.lightbox-modal.active {
+  display: flex;
+}
+
+.lightbox-dialog {
+  max-width: 900px;
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--accent-amber);
+  border-radius: 2px;
+  padding: 32px;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 1.8rem;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.lightbox-close:hover {
+  color: var(--accent-amber);
+}
+
+.lightbox-img-wrap {
+  max-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.lightbox-img-wrap img {
+  max-height: 360px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.lightbox-info h3 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--text-bright);
+  margin-bottom: 8px;
+}
+
+.lightbox-info p {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   16. RESPONSIVE DESIGN (TABLETS & MOBILE)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .gamemode-grid,
+  .map-layout,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  
+  .map-image-container {
+    border-right: none;
+    border-bottom: 1px solid var(--border-subtle);
+    min-height: 360px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 70px 0;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    background: rgba(8, 11, 16, 0.98);
+    flex-direction: column;
+    padding: 24px;
+    gap: 20px;
+    border-bottom: 1px solid var(--border-subtle);
+    display: none;
+  }
+
+  .nav-menu.mobile-open {
+    display: flex;
+  }
+
+  .mobile-toggle {
+    display: flex;
+  }
+
+  .nav-actions .btn {
+    display: none;
+  }
+
+  .tactical-features-list {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-container {
+    padding: 36px 20px;
+  }
+}
+

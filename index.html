@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GAS // Tactical Survival Mil-Sim Shooter</title>
+  <meta name="description" content="GAS is an ex-military island survival tactical shooter blending mil-sim ballistics, deep weapon customization, and intense last-man-standing combat.">
+  <meta property="og:title" content="GAS // Tactical Mil-Sim Shooter - Prototype Pitch">
+  <meta property="og:description" content="You are an ex-military operator placed into a military island to survive till last man standing. Every action has consequences.">
+  <meta property="og:image" content="assets/coverart.png">
+  <link rel="icon" type="image/png" href="assets/icon.png">
+  
+  <!-- Google Fonts: Rajdhani (Headings), Inter (Body), JetBrains Mono (HUD/Specs) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&family=Rajdhani:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       NAVIGATION BAR
+       ========================================================================= -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <div class="nav-brand">
+        <a href="#hero" class="brand-logo">GAS<span class="dot">.</span></a>
+        <!-- <span class="brand-badge">PROTOTYPE STATE</span> -->
+      </div>
+
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#hero" class="nav-link active">Overview</a></li>
+          <li><a href="#gamemode" class="nav-link">Game Mode</a></li>
+          <li><a href="#weapons" class="nav-link">Gunplay</a></li>
+          <li><a href="#ammo" class="nav-link">Ammo System</a></li>
+          <li><a href="#attachments" class="nav-link">Loadout</a></li>
+          <li><a href="#utilities" class="nav-link">Utilities</a></li>
+          <li><a href="#map" class="nav-link">Island Map</a></li>
+          <li><a href="#contact" class="nav-link">Contacts</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#contact" class="btn btn-primary btn-sm">Pitch Deck & Contact</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- =========================================================================
+       SECTION 1: HERO & TITLE / CORE PITCH
+       * Change Background: update style="--section-bg: url('assets/YourImage.png');"
+       * Change Title/Description: edit the text inside h1, h2, or p tags below
+       ========================================================================= -->
+  <section id="hero" class="hero-section" style="--section-bg: url('assets/coverart.png');">
+    <div class="container">
+      <div class="hero-content">
+        
+        <div class="hero-meta-strip">
+          <span class="meta-pill live">PROTOTYPE READY</span>
+          <!-- <span class="meta-pill highlight">UNREAL ENGINE</span> -->
+          <!-- <span class="meta-pill">11 OPERATIVES</span> -->
+          <span class="meta-pill highlight">Rocketeers Games</span>
+
+        </div>
+
+        <h1 class="hero-title">GAS</h1>
+        <h2 class="hero-subtitle">GROUND ASSULT SURVIVAL</h2>
+
+        <!-- Game Description -->
+        <p class="hero-brief">
+          You are an ex-military person placed into a military island along with 10 others to survive till last man standing. You observe, communicate, decide and take action — then every action has consequences.
+        </p>
+
+        <!-- Motive & Vision Statement (Pitch Focus) -->
+        <div class="pitch-motive-card tactical-box">
+          <div class="motive-header">
+            <span class="motive-tag">// CORE DESIGN MOTIVE & INSPIRATION</span>
+          </div>
+          <p class="pitch-motive-text">
+            "I believe there is a place for casual players in the mil-sim genre without removing tension and depth. <strong>GAS</strong> is inspired by <strong>CS:GO</strong>, <strong>PUBG (2017–2018 version)</strong> along with tactical mil-sim titles like <strong>Squad</strong> and <strong>ARMA</strong> where you experience intense, heart-pumping firefights. You get to play the way you want and live with the consequences. Features like full ballistic simulation, large hillside landscapes with compact POIs for both long-range and CQB combat, extensive in-match weapon customization allowing unique kit for each match, and most importantly, experiencing raw, unfiltered gunplay."
+          </p>
+        </div>
+
+        <div class="hero-cta-group">
+          <a href="#contact" class="btn btn-primary">Publisher Pitch Deck</a>
+          <a href="#gamemode" class="btn btn-secondary">Explore Game Overview &darr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       SECTION 2: GAME MODE (BATTLE ROYALE / SURVIVAL)
+       * Change Background: update style="--section-bg: url('assets/...');"
+       ========================================================================= -->
+  <section id="gamemode" class="game-section" style="--section-bg: url('assets/renders/camp.png');">
+    <div class="container">
+      
+      <div class="section-header">
+        <span class="section-tag">02 // GAME MODE</span>
+        <h2 class="section-title">EXPERIENCE THE BATTLE ROYALE</h2>
+        <p class="section-desc">Last Man Standing tactical survival on an isolated military perimeter.</p>
+      </div>
+
+      <div class="gamemode-grid">
+        <div class="gamemode-info">
+          <h3>LAST MAN STANDING</h3>
+          <p>
+            11 operatives deploy onto the island with zero safety nets. Every engagement is earned through reconnaissance, positioning, and split-second tactical calculations. Survival demands caution: gunshots echo across mountain ranges, and reloading a half-empty magazine leaves you vulnerable.
+          </p>
+
+          <ul class="tactical-features-list">
+            <li class="feature-pill">
+              <span class="feature-icon">01</span>
+              <div>
+                <h4 class="feature-title">11-Player Standoff</h4>
+                <p class="feature-sub">Compact lobby with maximum personal stakes and zero downtime.</p>
+              </div>
+            </li>
+            <li class="feature-pill">
+              <span class="feature-icon">02</span>
+              <div>
+                <h4 class="feature-title">High Consequence</h4>
+                <p class="feature-sub">Realistic ballistics, high lethality, and meaningful engagements.</p>
+              </div>
+            </li>
+            <li class="feature-pill">
+              <span class="feature-icon">03</span>
+              <div>
+                <h4 class="feature-title">Scavenge & Build</h4>
+                <p class="feature-sub">Adapt your weapon kit on the fly from modular attachments found in the field.</p>
+              </div>
+            </li>
+            <li class="feature-pill">
+              <span class="feature-icon">04</span>
+              <div>
+                <h4 class="feature-title">Casual Accessibility</h4>
+                <p class="feature-sub">Pure mil-sim depth without clunky, barrier-to-entry keybind complexity.</p>
+              </div>
+            </li>
+          </ul>
+
+          <a href="#weapons" class="btn btn-secondary">Inspect The Arsenal &rarr;</a>
+        </div>
+
+        <div class="gamemode-visual tactical-box">
+          <img src="assets/gamemode.png" alt="GAS Gameplay In-Engine Screenshot" loading="lazy">
+          <div class="hud-watermark">
+            <span>SECTOR: 04 // PERIMETER</span>
+            <span>UNREAL ENGINE PROTOTYPE</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       SECTION 3: RAW GUNPLAY & WEAPONS ARSENAL
+       * Contains all 10 weapons with filter tabs and real prototype images
+       * To add or remove weapons: simply duplicate or remove a .weapon-card block
+       ========================================================================= -->
+  <section id="weapons" class="game-section" style="--section-bg: url('assets/renders/weapon-set.png');">
+    <div class="container">
+
+      <div class="section-header text-center">
+        <span class="section-tag">03 // FIREARMS & BALLISTICS</span>
+        <h2 class="section-title">EXPERIENCE RAW GUNPLAY</h2>
+        <p class="section-desc">
+          Authentic ballistic simulation, sharp recoil patterns, physical bullet drop, and punchy auditory feedback. Every firearm behaves with distinct mechanical weight.
+        </p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="weapon-filters">
+        <button class="filter-btn active" data-filter="all">All Weapons (10)</button>
+        <button class="filter-btn" data-filter="ar">Assault Rifles</button>
+        <button class="filter-btn" data-filter="smg">Submachine Guns</button>
+        <button class="filter-btn" data-filter="shotgun">Shotguns</button>
+        <button class="filter-btn" data-filter="marksman">Rifles & Marksman</button>
+        <button class="filter-btn" data-filter="sidearm">Sidearms</button>
+      </div>
+
+      <!-- Weapons Showcase Grid -->
+      <div class="weapons-grid">
+
+        <!-- 1. AKM -->
+        <div class="weapon-card tactical-box" data-category="ar">
+          <div class="weapon-card-header">
+            <span class="weapon-name">AKM</span>
+            <span class="weapon-category">7.62mm AR</span>
+          </div>
+          <div class="weapon-img-wrap">
+            <img src="assets/Weapons/T_AKM.png" alt="AKM Assault Rifle" loading="lazy">
+          </div>
+          <div class="weapon-stats">
+            <div class="stat-row"><span>DAMAGE</span><div class="stat-bar-container"><div class="stat-bar" style="width: 82%;"></div></div></div>
+            <div class="stat-row"><span>RECOIL</span><div class="stat-bar-container"><div class="stat-bar" style="width: 75%;"></div></div></div>
+            <div class="stat-row"><span>RANGE</span><div class="stat-bar-container"><div class="stat-bar" style="width: 70%;"></div></div></div>
+          </div>
+        </div>
+
+        <!-- 2. MK18 -->
+        <div class="weapon-card tactical-box" data-category="ar">
+          <div class="weapon-card-header">
+            <span class="weapon-name">MK18</span>
+            <span class="weapon-category">5.56mm AR</span>
+          </div>
+          <div class="weapon-img-wrap">
+            <img src="assets/Weapons/T_MK18.png" alt="MK18 Carbine" loading="lazy">
+          </div>
+          <div class="weapon-stats">
+            <div class="stat-row"><span>DAMAGE</span><div class="stat-bar-container"><div class="stat-bar" style="width: 72%;"></div></div></div>
+            <div class="stat-row"><span>RECOIL</span><div class="stat-bar-container"><div class="stat-bar" style="width: 58%;"></div></div></div>
+            <div class="stat-row"><span>RANGE</span><div class="stat-bar-container"><div class="stat-bar" style="width: 68%;"></div></div></div>
+          </div>
+        </div>
+
+        <!-- 3. M16 -->
+        <div class="weapon-card tactical-box" data-category="ar">
+          <div class="weapon-card-header">
+            <span class="weapon-name">M16</span>
+            <span class="weapon-category">5.56mm Burst/Single</span>
+          </div>
+          <div class="weapon-img-wrap">
+            <img src="assets/Weapons/T_M16.png" alt="M16 Rifle" loading="lazy">
+          </div>
+          <div class="weapon-stats">
+            <div class="stat-row"><span>DAMAGE</span><div class="stat-bar-container"><div class="stat-bar" style="width: 74%;"></div></div></div>
+            <div class="stat-row"><span>RECOIL</span><div class="stat-bar-container"><div class="stat-bar" style="width: 50%;"></div></div></div>
+            <div class="stat-row"><span>RANGE</span><div class="stat-bar-container"><div class="stat-bar" style="width: 78%;"></div></div></div>
+          </div>
+        </div>
+
+        <!-- 4. VECTOR -->
+        <div class="weapon-card tactical-box" data-category="smg">
+          <div class="weapon-card-header">
+            <span class="weapon-name">Vector</span>
+            <span class="weapon-category">.45 ACP SMG</span>
+          </div>
+          <div class="weapon-img-wrap">
+            <img src="assets/Weapons/T_Vector.png" alt="Vector SMG" loading="lazy">
+          </div>
+          <div class="weapon-stats">
+            <div class="stat-row"><span>FIRE RATE</span><div class="stat-bar-container"><div class="stat-bar" style="width: 96%;"></div></div></div>
+            <div class="stat-row"><span>DAMAGE</span><div class="stat-bar-container"><div class="stat-bar" style="width: 55%;"></div></div></div>
+            <div class="stat-row"><span>CQB POTENTIAL</span><div class="stat-bar-container"><div class="stat-bar" style="width: 92%;"></div></div></div>
+          </div>
+        </div>
+
+        <!-- 5. UMP -->
+        <div class="weapon-card tactical-box" data-category="smg">
+          <div class="weapon-card-header">
+            <span class="weapon-name">UMP</span>
+            <span class="weapon-category">9mm SMG</span>
+          </div>
+          <div class="weapon-img-wrap">
+            <img src="assets/Weapons/T_UMP.png" alt="UMP SMG" loading="lazy">
+          </div>
+          <div class="weapon-stats">
+            <div class="stat-row"><span>DAMAGE</span><div class="stat-bar-container"><div class="stat-bar" style="width: 60%;"></div></div></div>
+            <div class="stat-row"><span>RECOIL</span><div class="stat-bar-container"><div class="stat-bar" style="width: 42%;"></div></div></div>
+            <div class="stat-row"><span>CONTROL</span><div class="stat-bar-container"><div class="stat-bar" style="width: 85%;"></div></div></div>
+          </div>
+        </div>
+
+        <!-- 6. MP5 -->
+        <div class="weapon-card tactical-box" data-category="smg">
+          <div class="weapon-card-header">
+            <span class="weapon-name">MP5</span>
+            <span class="weapon-category">9mm SMG</span>
+          </div>
+          <div class="weapon-img-wrap">
+            <img src="assets/Weapons/T_MP5.png" alt="MP5 SMG" loading="lazy">
+          </div>
+          <div class="weapon-stats">
+            <div class="stat-row"><span>FIRE RATE</span><div class="stat-bar-container"><div class="stat-bar" style="width: 80%;"></div></div></div>
+            <div class="stat-row"><span>ACCURACY</span><div class="stat-bar-container"><div class="stat-bar" style="width: 78%;"></div></div></div>
+            <div class="stat-row"><span>CONTROL</span><div class="stat-bar-container"><div class="stat-bar" style="width: 82%;"></div></div></div>
+          </div>
+        </div>
+
+        <!-- 7. M4 SHOTGUN -->
+        <div class="weapon-card tactical-box" data-category="shotgun">
+          <div class="weapon-card-header">
+            <span class="weapon-name">M4 Shotgun</span>
+            <span class="weapon-category">12 Gauge Semi-Auto</span>
+          </div>
+          <div class="weapon-img-wrap">
+            <img src="assets/Weapons/T_Shotgun.png" alt="M4 Tactical Shotgun" loading="lazy">
+          </div>
+          <div class="weapon-stats">
+            <div class="stat-row"><span>CQB DAMAGE</span><div class="stat-bar-container"><div class="stat-bar" style="width: 98%;"></div></div></div>
+            <div class="stat-row"><span>SPREAD</span><div class="stat-bar-container"><div class="stat-bar" style="width: 65%;"></div></div></div>
+            <div class="stat-row"><span>RANGE</span><div class="stat-bar-container"><div class="stat-bar" style="width: 32%;"></div></div></div>
+          </div>
+        </div>
+
+        <!-- 8. WIN95 (W94) -->
+        <div class="weapon-card tactical-box" data-category="marksman">
+          <div class="weapon-card-header">
+            <span class="weapon-name">Win95</span>
+            <span class="weapon-category">Lever-Action Rifle</span>
+          </div>
+          <div class="weapon-img-wrap">
+            <img src="assets/Weapons/T_W94.png" alt="Winchester 95 Rifle" loading="lazy">
+          </div>
+          <div class="weapon-stats">
+            <div class="stat-row"><span>DAMAGE</span><div class="stat-bar-container"><div class="stat-bar" style="width: 88%;"></div></div></div>
+            <div class="stat-row"><span>RANGE</span><div class="stat-bar-container"><div class="stat-bar" style="width: 84%;"></div></div></div>
+            <div class="stat-row"><span>ACCURACY</span><div class="stat-bar-container"><div class="stat-bar" style="width: 90%;"></div></div></div>
+          </div>
+        </div>
+
+        <!-- 9. HUNTER -->
+        <div class="weapon-card tactical-box" data-category="marksman">
+          <div class="weapon-card-header">
+            <span class="weapon-name">Hunter</span>
+            <span class="weapon-category">Precision Bolt Sniper</span>
+          </div>
+          <div class="weapon-img-wrap">
+            <img src="assets/Weapons/T_Hunter.png" alt="Hunter Sniper Rifle" loading="lazy">
+          </div>
+          <div class="weapon-stats">
+            <div class="stat-row"><span>DAMAGE</span><div class="stat-bar-container"><div class="stat-bar" style="width: 95%;"></div></div></div>
+            <div class="stat-row"><span>RANGE</span><div class="stat-bar-container"><div class="stat-bar" style="width: 96%;"></div></div></div>
+            <div class="stat-row"><span>VELOCITY</span><div class="stat-bar-container"><div class="stat-bar" style="width: 92%;"></div></div></div>
+          </div>
+        </div>
+
+        <!-- 10. REVOLVER -->
+        <div class="weapon-card tactical-box" data-category="sidearm">
+          <div class="weapon-card-header">
+            <span class="weapon-name">Revolver</span>
+            <span class="weapon-category">.44 Magnum Sidearm</span>
+          </div>
+          <div class="weapon-img-wrap">
+            <img src="assets/Weapons/T_Revolver.png" alt="Revolver Sidearm" loading="lazy">
+          </div>
+          <div class="weapon-stats">
+            <div class="stat-row"><span>STOPPING POWER</span><div class="stat-bar-container"><div class="stat-bar" style="width: 78%;"></div></div></div>
+            <div class="stat-row"><span>CAPACITY</span><div class="stat-bar-container"><div class="stat-bar" style="width: 30%;"></div></div></div>
+            <div class="stat-row"><span>RECOIL</span><div class="stat-bar-container"><div class="stat-bar" style="width: 72%;"></div></div></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       SECTION 4: REALISTIC AMMO MANAGEMENT & MAGAZINE SYSTEM
+       * Change Background: update style="--section-bg: url('assets/...');"
+       ========================================================================= -->
+  <section id="ammo" class="game-section" style="--section-bg: url('assets/renders/camp-close.png');">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-tag">04 // MAGAZINE SYSTEM</span>
+        <h2 class="section-title">REALISTIC AMMO MANAGEMENT</h2>
+        <p class="section-desc">
+          Reloading doesn't merge loose rounds into an infinite pool. Individual magazines retain their exact round count. Check your mags, pack your bullets, and conserve ammunition when the circle tightens.
+        </p>
+      </div>
+
+      <div class="ammo-grid">
+
+        <!-- Handgun Magazine -->
+        <div class="ammo-card tactical-box">
+          <div class="ammo-img-wrap">
+            <svg width="60" height="85" viewBox="0 0 60 85" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 6px 10px rgba(0,0,0,0.6));">
+              <path d="M16 6H42C44.2 6 46 7.8 46 10V74C46 76.2 44.2 78 42 78H22L14 68V10C14 7.8 14.8 6 16 6Z" fill="#1b2434" stroke="#f59e0b" stroke-width="2"/>
+              <line x1="20" y1="20" x2="40" y2="20" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <line x1="20" y1="32" x2="40" y2="32" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <line x1="20" y1="44" x2="40" y2="44" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <circle cx="30" cy="58" r="3" fill="#f59e0b"/>
+              <path d="M12 78H48V82H12V78Z" fill="#334155"/>
+            </svg>
+          </div>
+          <h3 class="ammo-title">Handgun Mag</h3>
+          <div class="ammo-spec">9mm / .45 ACP</div>
+          <p class="ammo-desc">Compact sidearm capacity. Fast tactical swaps during dry primary reloads.</p>
+        </div>
+
+        <!-- AR Magazine -->
+        <div class="ammo-card tactical-box">
+          <div class="ammo-img-wrap">
+            <img src="assets/Ammo/T_Magazine_AR.png" alt="AR Magazine" loading="lazy">
+          </div>
+          <h3 class="ammo-title">AR Magazine</h3>
+          <div class="ammo-spec">5.56mm / 7.62mm (30 Rds)</div>
+          <p class="ammo-desc">High-capacity rifle magazines. Essential for sustained fire across hill POIs.</p>
+        </div>
+
+        <!-- SMG Magazine -->
+        <div class="ammo-card tactical-box">
+          <div class="ammo-img-wrap">
+            <img src="assets/Ammo/T_Magazine_SMG.png" alt="SMG Magazine" loading="lazy">
+          </div>
+          <h3 class="ammo-title">SMG Magazine</h3>
+          <div class="ammo-spec">9mm / .45 ACP High-Feed</div>
+          <p class="ammo-desc">High cyclic feeding speed for lightning-fast room clearing and CQB engagements.</p>
+        </div>
+
+        <!-- Shotgun Shells -->
+        <div class="ammo-card tactical-box">
+          <div class="ammo-img-wrap">
+            <img src="assets/Ammo/T_Magazine_Shells.png" alt="Shotgun Shells" loading="lazy">
+          </div>
+          <h3 class="ammo-title">Shotgun Shells</h3>
+          <div class="ammo-spec">12 Gauge Buckshot</div>
+          <p class="ammo-desc">Manual single-shell chambering or tube loads. High close-quarters devastating power.</p>
+        </div>
+
+        <!-- Sniper Magazine -->
+        <div class="ammo-card tactical-box">
+          <div class="ammo-img-wrap">
+            <img src="assets/Ammo/T_Magazine_Sniper.png" alt="Sniper Magazine" loading="lazy">
+          </div>
+          <h3 class="ammo-title">Sniper Mag</h3>
+          <div class="ammo-spec">High-Caliber Precision (5-10 Rds)</div>
+          <p class="ammo-desc">Precision-machined feed lips ensuring pristine long-distance ballistic trajectories.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       SECTION 5: WEAPON ATTACHMENTS / MAKE YOUR OWN LOADOUT
+       * Part 1: Sights (Reflex, Holo, 2x, 4x, 6x, 8x) & Grips (Vertical, Foregrip)
+       * Part 2: Muzzles (Flash Hider, Suppressor)
+       ========================================================================= -->
+  <section id="attachments" class="game-section" style="--section-bg: url('assets/renders/forest.png');">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-tag">05 // MODULAR WEAPONRY</span>
+        <h2 class="section-title">MAKE YOUR OWN LOADOUT</h2>
+        <p class="section-desc">
+          Customize your firearm during the match to fit the evolving terrain. Swap from a red dot for tight bunker breach to an 8x scope for long-range mountain overwatch.
+        </p>
+      </div>
+
+      <div class="attachments-container">
+
+        <!-- SUBSECTION 1: SIGHTS & OPTICS -->
+        <div>
+          <h3 class="subgroup-title">PART 1: OPTICS & TACTICAL SIGHTS</h3>
+          <div class="attachments-grid-4">
+
+            <!-- Reflex Sight -->
+            <div class="attachment-card tactical-box">
+              <div class="attachment-icon-box">
+                <img src="assets/Attachments/T_ReflexSight.png" alt="Reflex Sight" loading="lazy">
+              </div>
+              <div class="attachment-info">
+                <div class="attachment-name">Reflex Sight</div>
+                <div class="attachment-benefit">Fast 1x target acquisition</div>
+              </div>
+            </div>
+
+            <!-- Holosight -->
+            <div class="attachment-card tactical-box">
+              <div class="attachment-icon-box">
+                <img src="assets/Attachments/T_HoloSight.png" alt="Holo Sight" loading="lazy">
+              </div>
+              <div class="attachment-info">
+                <div class="attachment-name">Holosight</div>
+                <div class="attachment-benefit">Wide-reticle CQB perimeter</div>
+              </div>
+            </div>
+
+            <!-- 2X Sight -->
+            <div class="attachment-card tactical-box">
+              <div class="attachment-icon-box">
+                <img src="assets/Attachments/T_2X.png" alt="2X Scope" loading="lazy">
+              </div>
+              <div class="attachment-info">
+                <div class="attachment-name">2X Sight</div>
+                <div class="attachment-benefit">Mid-range combat clarity</div>
+              </div>
+            </div>
+
+            <!-- 4X Scope -->
+            <div class="attachment-card tactical-box">
+              <div class="attachment-icon-box">
+                <img src="assets/Attachments/T_4X.png" alt="4X ACOG Scope" loading="lazy">
+              </div>
+              <div class="attachment-info">
+                <div class="attachment-name">4X Scope</div>
+                <div class="attachment-benefit">Tactical hillside engagements</div>
+              </div>
+            </div>
+
+            <!-- 6X Scope -->
+            <div class="attachment-card tactical-box">
+              <div class="attachment-icon-box">
+                <img src="assets/Attachments/T_6X.png" alt="6X Sniper Scope" loading="lazy">
+              </div>
+              <div class="attachment-info">
+                <div class="attachment-name">6X Scope</div>
+                <div class="attachment-benefit">Extended DMR overwatch</div>
+              </div>
+            </div>
+
+            <!-- 8X Scope -->
+            <div class="attachment-card tactical-box">
+              <div class="attachment-icon-box">
+                <img src="assets/Attachments/T_8X.png" alt="8X Scope" loading="lazy">
+              </div>
+              <div class="attachment-info">
+                <div class="attachment-name">8X Scope</div>
+                <div class="attachment-benefit">Maximum range sniper optics</div>
+              </div>
+            </div>
+
+            <!-- Vertical Grip -->
+            <div class="attachment-card tactical-box">
+              <div class="attachment-icon-box">
+                <img src="assets/Attachments/T_VerticalGrip.png" alt="Vertical Grip" loading="lazy">
+              </div>
+              <div class="attachment-info">
+                <div class="attachment-name">Vertical Grip</div>
+                <div class="attachment-benefit">-25% Vertical recoil climb</div>
+              </div>
+            </div>
+
+            <!-- Foregrip / Angled -->
+            <div class="attachment-card tactical-box">
+              <div class="attachment-icon-box">
+                <img src="assets/Attachments/T_ForeGrip.png" alt="Foregrip" loading="lazy">
+              </div>
+              <div class="attachment-info">
+                <div class="attachment-name">Tactical Foregrip</div>
+                <div class="attachment-benefit">+20% Aim-down-sight speed</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- SUBSECTION 2: MUZZLES & SUPPRESSORS -->
+        <div>
+          <h3 class="subgroup-title">PART 2: BARREL & MUZZLE ATTACHMENTS</h3>
+          <div class="attachments-grid-2">
+
+            <!-- Flash Hider -->
+            <div class="attachment-card tactical-box">
+              <div class="attachment-icon-box">
+                <img src="assets/Attachments/T_FlashHider.png" alt="Flash Hider" loading="lazy">
+              </div>
+              <div class="attachment-info">
+                <div class="attachment-name">Flash Hider</div>
+                <div class="attachment-benefit">Eliminates muzzle flash signature &amp; reduces horizontal spread</div>
+              </div>
+            </div>
+
+            <!-- Suppressor -->
+            <div class="attachment-card tactical-box">
+              <div class="attachment-icon-box">
+                <img src="assets/Attachments/T_Suppresor.png" alt="Suppressor" loading="lazy">
+              </div>
+              <div class="attachment-info">
+                <div class="attachment-name">Suppressor</div>
+                <div class="attachment-benefit">Drastically mutes acoustic gunshot profile &amp; conceals shooter radar</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       SECTION 6: UTILITIES & FIELD GEAR
+       * Change Background: update style="--section-bg: url('assets/...');"
+       ========================================================================= -->
+  <section id="utilities" class="game-section" style="--section-bg: url('assets/renders/hill-top.png');">
+    <div class="container">
+
+      <div class="section-header text-center">
+        <span class="section-tag">06 // FIELD EQUIPMENT</span>
+        <h2 class="section-title">TACTICAL UTILITIES</h2>
+        <p class="section-desc">
+          Survival gear and high-impact throwables that dictate positioning, survivability, and perimeter control.
+        </p>
+      </div>
+
+      <div class="utilities-grid">
+
+        <!-- Bandages -->
+        <div class="utility-card tactical-box">
+          <div class="utility-icon-wrap">
+            <img src="assets/Utilities/T_Bandage.png" alt="Medical Bandages" loading="lazy">
+          </div>
+          <h3 class="utility-title">Bandages</h3>
+          <div class="utility-tagline">HEAL YOUR WOUNDS</div>
+          <p class="utility-desc">
+            Essential field dressings to patch flesh wounds, halt bleed-out mechanics, and restore physical stamina after skirmishes.
+          </p>
+        </div>
+
+        <!-- Frag Grenade -->
+        <div class="utility-card tactical-box">
+          <div class="utility-icon-wrap">
+            <img src="assets/Utilities/T_Grenade.png" alt="Fragmentation Grenade" loading="lazy">
+          </div>
+          <h3 class="utility-title">Frag Grenade</h3>
+          <div class="utility-tagline">EXPLODING THROWABLE</div>
+          <p class="utility-desc">
+            High-explosive shrapnel ordnance engineered to breach bunkers, flush dug-in defenders, and secure perimeter denial.
+          </p>
+        </div>
+
+        <!-- Smoke Grenade -->
+        <div class="utility-card tactical-box">
+          <div class="utility-icon-wrap">
+            <!-- Fallback tactical smoke visual -->
+            <div style="width: 100px; height: 100px; border: 2px dashed rgba(245, 158, 11, 0.4); display: flex; align-items: center; justify-content: center; border-radius: 50%;">
+              <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-amber);">SMOKE</span>
+            </div>
+          </div>
+          <h3 class="utility-title">Smoke Grenade</h3>
+          <div class="utility-tagline">COVER THROWABLE</div>
+          <p class="utility-desc">
+            Dense thermal smoke cloud creating an immediate visual barrier for crossing open fields, evading snipers, or securing revives.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       SECTION 7: MAP (MILITARY ISLAND)
+       * Change Background: update style="--section-bg: url('assets/...');"
+       * To add Map 2 in the future: see README or duplicate this entire block!
+       ========================================================================= -->
+  <section id="map" class="game-section" style="--section-bg: url('assets/renders/map-cinematic.png');">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-tag">07 // COMBAT THEATER</span>
+        <h2 class="section-title">MAP: MILITARY ISLAND</h2>
+        <p class="section-desc">
+          Rugged topography designed for simultaneous long-range elevation advantage and claustrophobic close-quarters battle.
+        </p>
+      </div>
+
+      <div class="map-showcase tactical-box">
+        <div class="map-layout">
+
+          <!-- Map Image Preview -->
+          <div class="map-image-container">
+            <img src="assets/map-overivew.png" alt="Tactical Military Island Map Overview" loading="lazy">
+            <div class="hud-watermark">
+              <span>GRID: ISOK-01 // TACTICAL OVERVIEW</span>
+              <span>CLICK TO ZOOM MAP</span>
+            </div>
+          </div>
+
+          <!-- Map Strategic Details -->
+          <div class="map-details">
+            <div>
+              <span class="map-badge">// THEATER SUMMARY</span>
+              <h3 class="map-name">MILITARY ISLAND</h3>
+              <p class="map-brief">
+                A decommissioned island fortification featuring sprawling hillside ridges, thick tree canopies, and dense military POIs. Snipers hold high vantage points across ridge valleys while aggressive breachers clash in interior subterranean bunkers and radar stations.
+              </p>
+
+              <div class="poi-list">
+                <div class="poi-item">
+                  <span class="poi-dot"></span>
+                  <span><strong>HILLSIDE OUTPOST:</strong> Long-range sniper elevation overwatch</span>
+                </div>
+                <div class="poi-item">
+                  <span class="poi-dot"></span>
+                  <span><strong>BUNKER COMPLEX:</strong> Tight CQB shotgun &amp; SMG clearing zones</span>
+                </div>
+                <div class="poi-item">
+                  <span class="poi-dot"></span>
+                  <span><strong>FIRING RANGE &amp; DEPOT:</strong> High-tier loot cache with contested lines of sight</span>
+                </div>
+                <div class="poi-item">
+                  <span class="poi-dot"></span>
+                  <span><strong>COASTAL EXTRACTION PERIMETER:</strong> Open water &amp; rocky choke points</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <span class="meta-pill highlight">EXPANDABLE: 2ND MAP PLANNED</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       SECTION 8: PUBLISHER PITCH & CONTACTS
+       * Update your email, Discord, or Pitch Deck links below
+       ========================================================================= -->
+  <section id="contact" class="game-section" style="--section-bg: url('assets/renders/grass-field.png');">
+    <div class="container">
+
+      <div class="contact-container tactical-box">
+        <div class="contact-grid">
+
+          <div class="contact-info">
+            <span class="section-tag">// CONTACTS</span>
+            <h3>CONNECT WITH THE DEVELOPER</h3>
+            <p>
+              <strong>GAS</strong> is currently in active prototype state. We are actively seeking publisher partnership, investment, and development resources to scale the game to alpha playtesting.
+            </p>
+
+            <div class="contact-methods">
+              <div class="contact-card">
+                <div>
+                  <div class="contact-label">Direct Email</div>
+                  <div class="contact-value" id="devEmail">gihanrae@gmail.com</div>
+                </div>
+                <button class="copy-btn" id="copyEmailBtn">COPY EMAIL</button>
+              </div>
+
+              <div class="contact-card">
+                <div>
+                  <div class="contact-label">Discord Community</div>
+                  <div class="contact-value">discord.gg/Fn6Yc2QKSM</div>
+                </div>
+                <a href="#" class="copy-btn">JOIN SERVER</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="pitch-action-card tactical-box">
+            <h4>REQUEST PROTOTYPE DECK. remove this</h4>
+            <p>
+              Receive our comprehensive publisher pitch deck including budget allocations, target milestones, gameplay capture reels, and playable build access.
+            </p>
+            <a href="mailto:gihanrae@gmail.com?subject=GAS%20Publisher%20Inquiry%20-%20Pitch%20Deck%20Request" class="btn btn-primary" style="width: 100%; margin-bottom: 12px;">Email Pitch Request</a>
+            <a href="#hero" class="btn btn-secondary btn-sm" style="width: 100%;">Return To Top &uarr;</a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================================
+       FOOTER
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-brand">GAS<span>.</span></div>
+      <p class="footer-legal">
+        &copy; 2026 GAS Project. All rights reserved. Developed with Unreal Engine.
+      </p>
+    </div>
+  </footer>
+
+
+  <!-- =========================================================================
+       LIGHTBOX / MODAL FOR WEAPONS & MAP ZOOM
+       ========================================================================= -->
+  <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-hidden="true">
+    <div class="lightbox-dialog tactical-box">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close dialog">&times;</button>
+      <div class="lightbox-img-wrap">
+        <img src="" alt="" id="lightboxImg">
+      </div>
+      <div class="lightbox-info">
+        <h3 id="lightboxTitle"></h3>
+        <p id="lightboxDesc"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="main.js"></script>
+</body>
+</html>
+
