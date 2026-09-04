@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&family=Rajdhani:wght@500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2.1">
 </head>
 <body>
 
@@ -35,17 +35,19 @@
           <li><a href="#hero" class="nav-link active">Overview</a></li>
           <li><a href="#gamemode" class="nav-link">Game Mode</a></li>
           <li><a href="#weapons" class="nav-link">Gunplay</a></li>
-          <li><a href="#ammo" class="nav-link">Ammo System</a></li>
+          <li><a href="#ammo" class="nav-link">Ammo</a></li>
           <li><a href="#attachments" class="nav-link">Loadout</a></li>
           <li><a href="#utilities" class="nav-link">Utilities</a></li>
-          <li><a href="#map" class="nav-link">Island Map</a></li>
-          <li><a href="#contact" class="nav-link">Contacts</a></li>
-          <li><a href="https://gihanrae.github.io/portfolio/" target="_blank" rel="noopener" class="nav-link" style="color: var(--accent-amber);">Portfolio &nearr;</a></li>
+          <li><a href="#map" class="nav-link">Map</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li class="mobile-only-link"><a href="https://gihanrae.github.io/portfolio/" target="_blank" rel="noopener" class="nav-link mobile-portfolio-link">Portfolio &nearr;</a></li>
+          <li class="mobile-only-link"><a href="#contact" class="nav-link mobile-pitch-link">Pitch Deck &amp; Contact</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
-        <a href="#contact" class="btn btn-primary btn-sm">Pitch Deck & Contact</a>
+        <a href="https://gihanrae.github.io/portfolio/" target="_blank" rel="noopener" class="btn btn-secondary btn-sm nav-portfolio-btn" title="View developer portfolio and past projects">Portfolio &nearr;</a>
+        <a href="#contact" class="btn btn-primary btn-sm">Pitch Deck</a>
         <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
           <span></span>
           <span></span>
@@ -171,52 +173,62 @@
       </div>
 
       <!-- IN-ENGINE FOOTAGE & DEVLOG SHOWCASE -->
-      <div class="video-showcase-grid">
-        <!-- Playtest Footage Video Card -->
-        <div class="video-card tactical-box">
-          <div class="video-header">
-            <span class="video-tag">// PLAYTEST FOOTAGE</span>
-            <span class="video-badge live">RAW GAMEPLAY</span>
-          </div>
-          <div class="video-embed-container">
-            <iframe 
-              src="https://www.youtube-nocookie.com/embed/M_VutAHuCao" 
-              title="GAS - Playtest Footage" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              allowfullscreen 
-              loading="lazy">
-            </iframe>
-          </div>
-          <div class="video-footer">
-            <h4>PROTOTYPE PLAYTEST FOOTAGE</h4>
-            <p>Raw in-engine combat capture showcasing recoil feedback, hit registration, movement mechanics, and survival gunplay.</p>
-            <a href="https://youtu.be/M_VutAHuCao" target="_blank" rel="noopener" class="video-link">
-              Watch On YouTube &rarr;
-            </a>
-          </div>
+      <div class="video-showcase-section">
+        <div class="video-showcase-header">
+          <span class="video-section-badge">// PROTOTYPE ARCHIVE</span>
+          <h3 class="video-showcase-title">WATCH PROTOTYPE IN ACTION</h3>
+          <p class="video-showcase-desc">In-engine Unreal Engine prototype combat, recoil feedback, hit registration, and developer system breakdown.</p>
         </div>
 
-        <!-- Devlog Video Card -->
-        <div class="video-card tactical-box">
-          <div class="video-header">
-            <span class="video-tag">// DEVELOPMENT LOG</span>
-            <span class="video-badge highlight">DEVLOG #1</span>
+        <div class="video-showcase-grid">
+          <!-- Playtest Footage Video Card -->
+          <div class="video-card tactical-box">
+            <div class="video-header">
+              <span class="video-tag">// PLAYTEST FOOTAGE</span>
+              <span class="video-badge live">RAW GAMEPLAY</span>
+            </div>
+            <div class="video-embed-container" style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000000; overflow: hidden;">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/M_VutAHuCao" 
+                title="GAS - Playtest Footage" 
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen 
+                loading="lazy">
+              </iframe>
+            </div>
+            <div class="video-footer">
+              <h4>PROTOTYPE PLAYTEST FOOTAGE</h4>
+              <p>Raw in-engine combat capture showcasing recoil feedback, hit registration, movement mechanics, and survival gunplay.</p>
+              <a href="https://youtu.be/M_VutAHuCao" target="_blank" rel="noopener" class="video-link">
+                Watch On YouTube &rarr;
+              </a>
+            </div>
           </div>
-          <div class="video-embed-container">
-            <iframe 
-              src="https://www.youtube-nocookie.com/embed/iciWA1KqCKI" 
-              title="GAS - Devlog" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              allowfullscreen 
-              loading="lazy">
-            </iframe>
-          </div>
-          <div class="video-footer">
-            <h4>GAS DEVLOG: PROTOTYPING &amp; SYSTEMS</h4>
-            <p>Developer walkthrough explaining the game's design vision, Unreal Engine architecture, ballistics, and tactical systems.</p>
-            <a href="https://youtu.be/iciWA1KqCKI" target="_blank" rel="noopener" class="video-link">
-              Watch On YouTube &rarr;
-            </a>
+
+          <!-- Devlog Video Card -->
+          <div class="video-card tactical-box">
+            <div class="video-header">
+              <span class="video-tag">// DEVELOPMENT LOG</span>
+              <span class="video-badge highlight">DEVLOG #1</span>
+            </div>
+            <div class="video-embed-container" style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000000; overflow: hidden;">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/iciWA1KqCKI" 
+                title="GAS - Devlog" 
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen 
+                loading="lazy">
+              </iframe>
+            </div>
+            <div class="video-footer">
+              <h4>GAS DEVLOG: PROTOTYPING &amp; SYSTEMS</h4>
+              <p>Developer walkthrough explaining the game's design vision, Unreal Engine architecture, ballistics, and tactical systems.</p>
+              <a href="https://youtu.be/iciWA1KqCKI" target="_blank" rel="noopener" class="video-link">
+                Watch On YouTube &rarr;
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -826,7 +838,7 @@
           </div>
 
           <div class="pitch-action-card tactical-box">
-            <h4>REQUEST PROTOTYPE DECK. remove this</h4>
+            <h4>REQUEST PROTOTYPE DECK</h4>
             <p>
               Receive our comprehensive publisher pitch deck including budget allocations, target milestones, gameplay capture reels, and playable build access.
             </p>
