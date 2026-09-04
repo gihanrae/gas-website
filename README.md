@@ -91,11 +91,11 @@ In `index.html`, inside `<ul class="nav-menu">`, add a new menu item:
 
 ---
 
-### 4. Updating Your Contact Details & Pitch Deck Link
-Scroll to `<section id="contact">` in `index.html`:
-- **Change Direct Email**: Search for `contact@gas-game.com` and replace with your real email.
-- **Change Discord**: Search for `discord.gg/gasgame` and replace with your invite link.
-- **Pitch Deck Button**: You can place your `PitchDeck.pdf` in the folder and change `href="mailto:..."` to `href="PitchDeck.pdf" download`.
+### 4. Updating Your Contact Details, Portfolio & Video Links
+- **Portfolio Link**: Linked in the Navbar, Hero badge, Section 8, and Footer (`https://gihanrae.github.io/portfolio/`).
+- **Playtest & Devlog Videos**: Embedded directly in Section 2 with quick-launch CTA buttons in the Hero (`https://youtu.be/M_VutAHuCao` and `https://youtu.be/iciWA1KqCKI`).
+- **Direct Email**: Configured to `gihanrae@gmail.com`.
+- **Discord Community**: Configured to `https://discord.gg/Fn6Yc2QKSM`.
 
 ---
 
