@@ -137,17 +137,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Bind click on map image
-  const mapImgContainer = document.querySelector('.map-image-container');
-  if (mapImgContainer) {
-    mapImgContainer.style.cursor = 'zoom-in';
-    mapImgContainer.addEventListener('click', () => {
-      const img = mapImgContainer.querySelector('img');
-      if (img) {
-        openLightbox(img.src, 'Military Island - Strategic Cartography', 'Overview of terrain, firing ranges, bunkers, and tactical points of interest.');
-      }
-    });
-  }
 
   // 6. COPY CONTACT EMAIL TO CLIPBOARD
   const copyBtn = document.getElementById('copyEmailBtn');

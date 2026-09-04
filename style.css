@@ -1063,6 +1063,7 @@ button {
   justify-content: center;
   min-height: 480px;
   border-right: 1px solid var(--border-subtle);
+  cursor: default;
 }
 
 .map-image-container img {
@@ -1151,9 +1152,16 @@ button {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1fr;
+  max-width: 760px;
+  margin: 0 auto;
   gap: 48px;
   align-items: center;
+}
+
+.contact-grid:has(.pitch-action-card) {
+  grid-template-columns: 1.1fr 0.9fr;
+  max-width: 100%;
 }
 
 .contact-info h3 {
