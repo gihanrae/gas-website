@@ -48,9 +48,9 @@ To change the background image, simply replace the file path inside `url(...)`:
 
 ```html
 <!-- Example: Changing Section 2 Background -->
-<section id="gamemode" class="game-section" style="--section-bg: url('assets/renders/camp.png');">
+<section id="gamemode" class="game-section" style="--section-bg: url('assets/renders/camp.webp');">
 ```
-You can put any image inside the `assets/` or `assets/renders/` folder and reference it like `assets/renders/your_image.png`.
+You can put any image inside the `assets/` or `assets/renders/` folder and reference it like `assets/renders/your_image.webp`.
 
 ---
 
