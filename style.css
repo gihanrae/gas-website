@@ -568,6 +568,14 @@ button {
 /* --------------------------------------------------------------------------
    7. SECTION 2: GAME MODE (BATTLE ROYALE / SURVIVAL)
    -------------------------------------------------------------------------- */
+#gamemode {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(6, 9, 14, 0.88) 0%, rgba(8, 11, 16, 0.95) 100%),
+    var(--section-bg, none);
+}
+
 .gamemode-grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -583,15 +591,59 @@ button {
   color: var(--text-bright);
   text-transform: uppercase;
   margin-bottom: 20px;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95);
 }
 
-.gamemode-info p {
-  color: #cbd5e1;
-  font-size: 1.1rem;
-  line-height: 1.75;
+.gamemode-brief-card {
+  background: rgba(12, 17, 26, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--accent-amber);
+  border-radius: 2px;
+  padding: 22px 26px;
   margin-bottom: 28px;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(245, 158, 11, 0.08);
+  position: relative;
+}
+
+.brief-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.brief-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--accent-amber);
+  text-transform: uppercase;
+}
+
+.brief-badge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 2px 8px;
+  border-radius: 2px;
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  text-transform: uppercase;
+}
+
+.gamemode-brief-text {
+  color: #f1f5f9;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin: 0;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
 }
 
 .tactical-features-list {
@@ -605,34 +657,48 @@ button {
 .feature-pill {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-  background: var(--bg-card);
+  gap: 14px;
+  background: rgba(10, 15, 24, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  padding: 14px 18px;
-  border: 1px solid var(--border-subtle);
+  padding: 16px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 2px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  transition: var(--transition);
+}
+
+.feature-pill:hover {
+  background: rgba(16, 24, 38, 0.98);
+  border-color: var(--accent-amber);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
 }
 
 .feature-icon {
   color: var(--accent-amber);
   font-family: var(--font-mono);
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+  line-height: 1;
+  margin-top: 2px;
 }
 
 .feature-title {
   font-family: var(--font-heading);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 700;
-  color: var(--text-bright);
+  color: #ffffff;
   text-transform: uppercase;
-  margin-bottom: 2px;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
 }
 
 .feature-sub {
-  font-size: 0.85rem;
-  color: var(--text-muted);
+  font-size: 0.92rem;
+  color: #cbd5e1;
+  line-height: 1.5;
 }
 
 .gamemode-visual {
