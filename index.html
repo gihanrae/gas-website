@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&family=Rajdhani:wght@500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=2.2">
+  <link rel="stylesheet" href="style.css?v=2.3">
 </head>
 <body>
 
@@ -216,6 +216,31 @@
               <h4>GAS DEVLOG: PROTOTYPING &amp; SYSTEMS</h4>
               <p>Developer walkthrough of game mechanics, gameplay system and many more features.</p>
               <a href="https://youtu.be/iciWA1KqCKI" target="_blank" rel="noopener" class="video-link">
+                Watch On YouTube &rarr;
+              </a>
+            </div>
+          </div>
+
+          <!-- Arma Mod Video Card -->
+          <div class="video-card tactical-box">
+            <div class="video-header">
+              <span class="video-tag">// EXPERIMENTAL MOD</span>
+              <span class="video-badge highlight">ARMA REFORGER</span>
+            </div>
+            <div class="video-embed-container" style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000000; overflow: hidden;">
+              <iframe 
+                src="https://www.youtube-nocookie.com/embed/fWH-rP8bwU4" 
+                title="GAS Mod for Arma Reforger" 
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen 
+                loading="lazy">
+              </iframe>
+            </div>
+            <div class="video-footer">
+              <h4>GAS MOD FOR ARMA</h4>
+              <p>Experimental modification for Arma Reforger exploring tactical systems.</p>
+              <a href="https://youtu.be/fWH-rP8bwU4" target="_blank" rel="noopener" class="video-link">
                 Watch On YouTube &rarr;
               </a>
             </div>
@@ -743,48 +768,46 @@
       <div class="map-showcase tactical-box">
         <div class="map-layout">
 
-          <!-- Map Image Preview -->
-          <div class="map-image-container">
-            <img src="assets/map-overivew.png" alt="Tactical Military Island Map Overview" loading="lazy">
+          <!-- Map Image Preview (True 16:9 Aspect Ratio for 2560x1440) -->
+          <div class="map-image-container" style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: #05080c; overflow: hidden;">
+            <img src="assets/map-overivew.png" alt="Tactical Military Island Map Overview" style="width: 100%; height: 100%; object-fit: contain; display: block;" loading="lazy">
             <div class="hud-watermark">
-              <span>CODENAME: ISOK</span>
+              <span>CODENAME: ISOK // 2560x1440 WIDESCREEN</span>
               <span>SECTOR MAP // OVERVIEW</span>
             </div>
           </div>
 
           <!-- Map Strategic Details -->
           <div class="map-details">
-            <div>
-              <!-- <span class="map-badge">// THEATER SUMMARY</span> -->
+            <div class="map-briefing-col">
               <h3 class="map-name">MILITARY ISLAND</h3>
               <p class="map-brief">
                 A decommissioned island fortress with rugged ridges, dense forests, and abandoned military POIs—where snipers dominate the high ground and breachers fight through underground bunkers and radar stations.
               </p>
-
-              <div class="poi-list">
-                <div class="poi-item">
-                  <span class="poi-dot"></span>
-                  <span><strong>HILLSIDE OUTPOST:</strong> Long-range sniper elevation overwatch</span>
-                </div>
-                <div class="poi-item">
-                  <span class="poi-dot"></span>
-                  <span><strong>BUNKER COMPLEX:</strong> Close-quarters combat</span>
-                </div>
-                <div class="poi-item">
-                  <span class="poi-dot"></span>
-                  <span><strong>FIRING RANGE:</strong> High-tier loot, exposed sightlines</span>
-                </div>
-                <div class="poi-item">
-                  <span class="poi-dot"></span>
-                  <span><strong>COASTAL EXTRACTION:</strong> Open water, tight choke points</span>
-                </div>
-                <div class="poi-item">
-                  <span class="poi-dot"></span>
-                  <span><strong>FOREST COMPOUND:</strong> Dense cover, unpredictable ambushes</span>
-                </div>
-              </div>
             </div>
 
+            <div class="poi-list">
+              <div class="poi-item">
+                <span class="poi-dot"></span>
+                <span><strong>HILLSIDE OUTPOST:</strong> Long-range sniper elevation overwatch</span>
+              </div>
+              <div class="poi-item">
+                <span class="poi-dot"></span>
+                <span><strong>BUNKER COMPLEX:</strong> Close-quarters combat</span>
+              </div>
+              <div class="poi-item">
+                <span class="poi-dot"></span>
+                <span><strong>FIRING RANGE:</strong> High-tier loot, exposed sightlines</span>
+              </div>
+              <div class="poi-item">
+                <span class="poi-dot"></span>
+                <span><strong>COASTAL EXTRACTION:</strong> Open water, tight choke points</span>
+              </div>
+              <div class="poi-item">
+                <span class="poi-dot"></span>
+                <span><strong>FOREST COMPOUND:</strong> Dense cover, unpredictable ambushes</span>
+              </div>
+            </div>
           </div>
 
         </div>
